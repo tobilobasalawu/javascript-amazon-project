@@ -46,7 +46,7 @@ products.forEach((product) => {
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">
+          <button class="add-to-cart-button button-primary js-add-to-cart">
             Add to Cart
           </button>
         </div>
@@ -57,3 +57,50 @@ console.log(productsHTML);
 
 document.querySelector('.js-products-grid')
   .innerHTML = productsHTML;
+
+document.querySelectorAll('.js-add-to-cart')
+  .forEach((button) => {
+    button.addEventListener('click', () => {
+      
+    })
+  });
+
+document.querySelector('.js-toggle-button')
+  .addEventListener('click', () => {
+    const darkThemeLink1 = document.querySelector('link[href="styles/shared/general-dark.css"]');
+    const darkThemeLink2 = document.querySelector('link[href="styles/pages/amazon-dark.css"]');
+
+    if (darkThemeLink1 && darkThemeLink2) {
+      darkThemeLink1.remove();
+      darkThemeLink2.remove();
+
+      let Lightlink = document.createElement('link');
+      Lightlink.rel = 'stylesheet';
+      Lightlink.href = 'styles/shared/general.css';
+
+      let Lightlink2 = document.createElement('link');
+      Lightlink2.rel = "stylesheet";
+      Lightlink2.href = "styles/pages/amazon.css"
+
+      document.head.appendChild(Lightlink2);
+      document.head.appendChild(Lightlink);
+    } else{ 
+      const lightThemeLink1 = document.querySelector('link[href="styles/shared/general.css"]');
+      const lightThemeLink2 = document.querySelector('link[href="styles/pages/amazon.css"]')
+
+      if (lightThemeLink1) lightThemeLink1.remove();
+      if (lightThemeLink2) lightThemeLink2.remove();
+
+      let Darklink = document.createElement('link');
+      Darklink.rel = 'stylesheet';
+      Darklink.href = 'styles/shared/general-dark.css';
+
+      let Darklink2 = document.createElement('link');
+      Darklink2.rel = 'stylesheet';
+      Darklink2.href = 'styles/pages/amazon-dark.css';
+
+      document.head.appendChild(Darklink);
+      document.head.appendChild(Darklink2);
+    }
+
+  })
