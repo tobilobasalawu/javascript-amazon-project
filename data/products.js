@@ -1,5 +1,19 @@
 const products = [
   {
+    id: "aad29d11-ea98-41ee-9285-b916638cac4a",
+    image: "images/products/round-sunglasses-black.jpg",
+    name: "Round Sunglasses",
+    rating: {
+      stars: 4.5,
+      count: 30
+    },
+    priceCents: 1560,
+    keywords: [
+      "accessories",
+      "shades"
+    ]
+  },
+  {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     image: "images/products/athletic-cotton-socks-6-pairs.jpg",
     name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
@@ -76,20 +90,6 @@ const products = [
     ]
   },
   {
-    id: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
-    image: "images/products/6-piece-non-stick-baking-set.webp",
-    name: "6-Piece Nonstick, Carbon Steel Oven Bakeware Baking Set",
-    rating: {
-      stars: 4.5,
-      count: 175
-    },
-    priceCents: 3499,
-    keywords: [
-      "kitchen",
-      "cookware"
-    ]
-  },
-  {
     id: "dd82ca78-a18b-4e2a-9250-31e67412f98d",
     image: "images/products/plain-hooded-fleece-sweatshirt-yellow.jpg",
     name: "Plain Hooded Fleece Sweatshirt",
@@ -136,6 +136,20 @@ const products = [
     ]
   },
   {
+    id: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
+    image: "images/products/6-piece-non-stick-baking-set.webp",
+    name: "6-Piece Nonstick, Carbon Steel Oven Bakeware Baking Set",
+    rating: {
+      stars: 4.5,
+      count: 175
+    },
+    priceCents: 3499,
+    keywords: [
+      "kitchen",
+      "cookware"
+    ]
+  },
+  {
     id: "58b4fc92-e98c-42aa-8c55-b6b79996769a",
     image: "images/products/knit-athletic-sneakers-gray.jpg",
     name: "Waterproof Knit Athletic Sneakers - Gray",
@@ -169,20 +183,7 @@ const products = [
     type: "clothing",
     sizeChartLink: "images/clothing-size-chart.png"
   },
-  {
-    id: "aad29d11-ea98-41ee-9285-b916638cac4a",
-    image: "images/products/round-sunglasses-black.jpg",
-    name: "Round Sunglasses",
-    rating: {
-      stars: 4.5,
-      count: 30
-    },
-    priceCents: 1560,
-    keywords: [
-      "accessories",
-      "shades"
-    ]
-  },
+
   {
     id: "04701903-bc79-49c6-bc11-1af7e3651358",
     image: "images/products/women-beach-sandals.jpg",
