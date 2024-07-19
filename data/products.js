@@ -1,5 +1,25 @@
 const products = [
   {
+    id: "id1",
+    image: "images/products/backpack.jpg",
+    name: "Vans Backpack",
+    rating: {
+      stars: 4.0,
+      count: 25
+    },
+    priceCents: 4650
+  },
+  {
+    id: "id2",
+    image: "images/products/umbrella.jpg",
+    name: "Rain Umbrella",
+    rating: {
+      stars: 3.5,
+      count: 103
+    },
+    priceCents: 2000
+  },
+  {
     id: "aad29d11-ea98-41ee-9285-b916638cac4a",
     image: "images/products/round-sunglasses-black.jpg",
     name: "Round Sunglasses",
