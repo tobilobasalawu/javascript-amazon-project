@@ -1,5 +1,6 @@
-import {cart} from "../data/cart.js";
+import {cart, addToCart} from "../data/cart.js";
 import {products} from "../data/products.js";
+
 
 let productsHTML = '';
 
@@ -63,53 +64,43 @@ document.querySelector('.js-products-grid')
 
 const addedMessageTimeouts = {};
 
+
+
+function updateCartQuantity() {
+  let cartQuantity = 0;
+
+  cart.forEach((cartItem) => {
+   cartQuantity += cartItem.quantity
+  });
+
+  document.querySelector('.cart-quantity')
+   .innerHTML = cartQuantity;
+}
+
+function buttonMessage(productId) {
+  document.querySelector(`.added-to-cart-${productId}`).classList.add('message-active');
+      
+  setTimeout(() => {
+    const prevTimeout = addedMessageTimeouts[productId];
+    if (prevTimeout){
+      clearTimeout(prevTimeout);
+    }
+
+    const timeout = setTimeout(() => {
+      document.querySelector(`.added-to-cart-${productId}`).classList.remove('message-active');
+    },2000)
+
+    addedMessageTimeouts[productId] = timeout;})
+}
+
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {
     button.addEventListener('click', () => {
-     const {productId} = button.dataset;
+    const {productId} = button.dataset;
+      addToCart(productId);
+      updateCartQuantity();
+      buttonMessage(productId);
 
-     let matchingItem;
-
-     cart.forEach((item) => {
-      if (productId === item.productId){
-        matchingItem = item;
-      }
-     });
-
-     let result = document.querySelector(`.js-quantity-selector-${productId}`);
-     let quantity = Number(result.value);
-
-     if (matchingItem) {
-      //matchingItem.quantity++;
-      matchingItem.quantity += quantity;
-     }else {
-      cart.push({ productId: productId, quantity: quantity, productId, quantity });
-     }
-
-     let cartQuantity = 0;
-
-     cart.forEach((item) => {
-      cartQuantity += item.quantity
-     });
-
-     document.querySelector('.cart-quantity')
-      .innerHTML = cartQuantity;
-
-      document.querySelector(`.added-to-cart-${productId}`).classList.add('message-active');
-      
-
-      setTimeout(() => {
-        const prevTimeout = addedMessageTimeouts[productId];
-        if (prevTimeout){
-          clearTimeout(prevTimeout);
-        }
-
-        const timeout = setTimeout(() => {
-          document.querySelector(`.added-to-cart-${productId}`).classList.remove('message-active');
-        },2000)
-
-        addedMessageTimeouts[productId] = timeout;})
-  
     });
   });
 
